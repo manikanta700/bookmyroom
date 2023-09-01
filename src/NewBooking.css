@@ -1,0 +1,88 @@
+.NewBooking {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .room-selection ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .room-selection li {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .room-selection li.selected {
+    background-color: #f4f4f4;
+  }
+  
+  .time-slot-selection ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .time-slot-selection li {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .time-slot-selection li:hover {
+    background-color: #f4f4f4;
+  }
+  
+  .booking-summary {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin-top: 20px;
+  }
+  
+  .btnc {
+    text-decoration: none;
+    border: none;
+    padding: 10px 100px;
+    font-size: 10px;
+    background-color: rgb(20, 3, 3);
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s all;
+   
+  }
+  /* Adding transformation when the button is active */
+  
+  .btnc:active {
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+  }

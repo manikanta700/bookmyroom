@@ -1,0 +1,38 @@
+.MyBookings {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  li {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f4f4f4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  strong {
+    display: inline-block;
+    width: 80px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  p + p {
+    margin-top: 10px;
+  }
+  

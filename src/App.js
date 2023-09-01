@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import NewBooking from './NewBooking';
+import MyBookings from './MyBookings';
 
-function App() {
+const App = () => {
+  const [activePage, setActivePage] = useState('new');
+
+  const handlePageChange = (page) => {
+    setActivePage(page);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <div className='headercontainer'>
+           <div className='title'>
+          <h1>bookmyroom</h1>
+          </div>
+          <div className='headerbtn'>
+            {activePage === 'new' ? (
+            <button className='btn' onClick={() => handlePageChange('bookings')}>My Bookings</button>
+          ) : (
+            <button className='btn' onClick={() => handlePageChange('new')}>New Booking</button>
+          )}
+          </div>
+        </div>
+       
+        
+       
       </header>
+      <div className="content">
+        {activePage === 'new' ? <NewBooking /> : <MyBookings />}
+      </div>
     </div>
   );
-}
+};
 
 export default App;
