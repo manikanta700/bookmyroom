@@ -19,26 +19,29 @@ const MyBookings = () => {
     const updatedBookings = [...bookings];
     updatedBookings.splice(index, 1);
   
-    // Update state and localStorage
+    // Updating state and localStorage
     setBookings(updatedBookings);
     localStorage.setItem('bookings', JSON.stringify(updatedBookings));
   };
   
+  // Set the edited booking details and open the edit page
   const handleEditBooking = (index) => {
-    // Set the edited booking details and open the edit popup
     setEditedBookingindex(index);
     setEditedBooking(bookings[index]);
     setIsEditing(true);
   };
-  const handleCancelEdit = () => {
-    // Close the edit popup without saving changes
+
+  // Closing the edit page after changes
+  const handleEditpage = () => {
     setIsEditing(false);
     setBookings(JSON.parse(localStorage.getItem('bookings')));
   };
+
+  // Editing page
   if(isEditing){
     return((
       <div className="edit-popup">
-        <NewBooking data={{editing:true,index:editedBookingIndex,date:editedBooking.date}} cancelFun={handleCancelEdit}></NewBooking>
+        <NewBooking data={{editing:true,index:editedBookingIndex,date:editedBooking.date,title:"Modifying your booking",savebtn:"conform changes"}} cancelFun={handleEditpage}></NewBooking>
       </div>
     ))
     
@@ -62,7 +65,7 @@ const MyBookings = () => {
               <strong>Date:</strong> {booking.date}<br />
               <strong>Room:</strong> {booking.room}<br />
               <strong>Time Slot:</strong> {booking.timeSlot}<br />
-              <button className='btnc' onClick={() => handleEditBooking(index)}>Edit</button>
+              <button className='btnc' onClick={() => handleEditBooking(index)}>Modify</button>
               <button className='btnc' onClick={() => handleDeleteBooking(index)}>cancel</button>
             </li>
           ))}

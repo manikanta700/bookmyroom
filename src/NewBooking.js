@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useRef,useEffect } from 'react';
 import './NewBooking.css';
 
 const NewBooking = (props) => {
@@ -77,6 +77,8 @@ const NewBooking = (props) => {
  
   
     props.cancelFun();
+
+    
     
   };
 
@@ -91,9 +93,24 @@ const NewBooking = (props) => {
   };
 
 
+  //To handel auto scrolling
+  const divRef = useRef();
+  useEffect(() => {
+    if (divRef.current) {
+      divRef.current.scrollIntoView(
+        {
+          behavior: 'smooth',
+          block: 'end',
+          inline: 'nearest'
+        })
+    }
+  },
+  [selectedRoom,selectedTimeSlot])
+
+
   return (
-    <div className="NewBooking">
-      <h2>New Booking</h2>
+    <div className="NewBooking" ref={divRef}>
+      <h2>{props.data.title}</h2>
       <label htmlFor="date">Select Date:</label>
       <input
         type="date"
@@ -122,7 +139,7 @@ const NewBooking = (props) => {
 
       {
         selectedRoom && ((timeSlots.length!==0)?(
-            <div className="time-slot-selection">
+            <div className="time-slot-selection" >
               <h3>Select Time Slot:</h3>
               <ul>
                {timeSlots.map(timeSlot => (
@@ -145,12 +162,12 @@ const NewBooking = (props) => {
 
 
       {selectedTimeSlot && (
-        <div className="booking-summary">
+        <div className="booking-summary" > 
         <h3>Booking Summary:</h3>
         <p>Date: {selectedDate}</p>
         <p>Room: Room {selectedRoom}</p>
         <p>Time Slot: {selectedTimeSlot}</p>
-        <button className='btnc' onClick={handleBooking}>Book Now</button>
+        <button className='btnc' onClick={handleBooking}>{props.data.savebtn}</button>
       </div>
       )}
     </div>

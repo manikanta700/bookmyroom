@@ -34,7 +34,7 @@ const App = () => {
        
       </header>
       <div className="content">
-        {activePage === 'new' ? <NewBooking data={{index:null}} cancelFun={handleAfterBooking}/> : <MyBookings />}
+        {activePage === 'new' ? <NewBooking data={{index:null,title:"New Booking",savebtn:"Book Now"}} cancelFun={handleAfterBooking}/> : <MyBookings />}
       </div>
     </div>
   );
