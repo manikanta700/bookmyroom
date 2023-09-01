@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './MyBookings.css';
-import './NewBooking'
+import '../styles/MyBookings.css';
+import '../components/NewBooking'
 import NewBooking from './NewBooking';
 
 const MyBookings = () => {

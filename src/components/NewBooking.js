@@ -1,5 +1,5 @@
 import React, { useState,useRef,useEffect } from 'react';
-import './NewBooking.css';
+import '../styles/NewBooking.css';
 
 const NewBooking = (props) => {
   const [selectedDate, setSelectedDate] = useState(props.data.date || '');

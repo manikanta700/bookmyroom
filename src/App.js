@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './App.css';
-import NewBooking from './NewBooking';
-import MyBookings from './MyBookings';
+import './styles/App.css';
+import NewBooking from './components/NewBooking';
+import MyBookings from './components/MyBookings';
 
 const App = () => {
   const [activePage, setActivePage] = useState('bookings');
