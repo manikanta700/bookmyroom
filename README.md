@@ -36,8 +36,6 @@ BookMyRoom is a small web application that allows users to book available meetin
 - [Installation](#installation)
 - [Usage](#usage)
 - [Folder Structure](#folder-structure)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Prerequisites
 
@@ -49,3 +47,10 @@ Before you begin, ensure you have met the following requirements:
 
 1. Clone the repository:
    ### `git clone https://github.com/manikanta700/bookmyroom.git`
+2. Navigate to the project folder:
+   ### `cd bookmyroom`
+3. Install the project dependencies:
+   ### `npm install`
+## Usage
+ Start the development server:
+   ### `npm start`
