@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './NewBooking.css';
 
-const NewBooking = () => {
-  const [selectedDate, setSelectedDate] = useState('');
+const NewBooking = (props) => {
+  const [selectedDate, setSelectedDate] = useState(props.data.date || '');
   const [selectedRoom, setSelectedRoom] = useState('');
   const [selectedTimeSlot, setSelectedTimeSlot] = useState('');
   const [timeSlots,settimeslots] = useState([
@@ -10,18 +10,14 @@ const NewBooking = () => {
                                         '9:30 AM - 10:00 AM',
                                         '10:00 AM - 10:30 AM'
                                     ])
-
-  const availableRooms = Array.from({ length: 9 }, (_, index) => `10${index + 1}`);
+  const [bookings, setBookings] = useState(JSON.parse(localStorage.getItem('bookings')) || []);
+  const availableRooms = Array.from({ length: 5 }, (_, index) => `10${index + 1}`);
 
   const handleDateChange = (event) => {
     const selectedDate = event.target.value;
-  
-    
     setSelectedDate(selectedDate);
     setSelectedRoom('');
     setSelectedTimeSlot('');
-    
-    
   };
   
 
@@ -54,6 +50,12 @@ const NewBooking = () => {
   };
 
   const handleBooking = () => {
+   
+    // Deleting the old slot in case of editing 
+    if(props.data.editing){
+      handleDeleteBooking(props.data.index)
+    }
+
     if (selectedDate && selectedRoom && selectedTimeSlot) {
       const bookingData = {
         date: selectedDate,
@@ -72,6 +74,20 @@ const NewBooking = () => {
       setSelectedTimeSlot('');
       console.log(JSON.parse(localStorage.getItem('bookings')));
     }
+ 
+  
+    props.cancelFun();
+    
+  };
+
+  const handleDeleteBooking = (index) => {
+    // Remove the booking at the specified index
+    const updatedBookings = [...bookings];
+    updatedBookings.splice(index, 1);
+  
+    // Update state and localStorage
+    setBookings(updatedBookings);
+    localStorage.setItem('bookings', JSON.stringify(updatedBookings));
   };
 
 
@@ -83,6 +99,7 @@ const NewBooking = () => {
         type="date"
         id="date"
         value={selectedDate}
+        min={new Date().toISOString().split('T')[0]}
         onChange={handleDateChange}
       />
 
@@ -121,34 +138,11 @@ const NewBooking = () => {
               </ul>
             </div>
           ):(<div className="time-slot-selection">
-          <h3>Sorry, All slots for this day are booked</h3>
+          <h3>Sorry, All slots for this room are booked</h3>
           
         </div>))
       }
 
-{/* {selectedRoom && (timeSlots!==[]) && (
-  <div className="time-slot-selection">
-    <h3>Select Time Slot:</h3>
-    <ul>
-     {timeSlots.map(timeSlot => (
-        <li
-          key={timeSlot}
-          onClick={() => handleTimeSlotSelect(timeSlot)}
-          className={selectedTimeSlot === timeSlot ? 'selected' : ''}
-        >
-          {timeSlot}
-        </li>
-      ))}
-     
-    </ul>
-  </div>
-)} */}
-{/* {selectedRoom && timeSlots===[] && (
-  <div className="time-slot-selection">
-    <h3>Sorry, All slots for this day are booked</h3>
-    
-  </div>
-)} */}
 
       {selectedTimeSlot && (
         <div className="booking-summary">
@@ -164,3 +158,4 @@ const NewBooking = () => {
 };
 
 export default NewBooking;
+

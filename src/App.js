@@ -4,10 +4,14 @@ import NewBooking from './NewBooking';
 import MyBookings from './MyBookings';
 
 const App = () => {
-  const [activePage, setActivePage] = useState('new');
+  const [activePage, setActivePage] = useState('bookings');
 
   const handlePageChange = (page) => {
     setActivePage(page);
+  };
+
+  const handleAfterBooking =()=>{
+     setActivePage('bookings');
   };
 
   return (
@@ -30,7 +34,7 @@ const App = () => {
        
       </header>
       <div className="content">
-        {activePage === 'new' ? <NewBooking /> : <MyBookings />}
+        {activePage === 'new' ? <NewBooking data={{index:null}} cancelFun={handleAfterBooking}/> : <MyBookings />}
       </div>
     </div>
   );
