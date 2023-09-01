@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# BookMyRoom
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+BookMyRoom is a small web application that allows users to book available meeting rooms for specific time slots within a workday.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Display Available Rooms:**
+  - List all available meeting rooms. Each room has a unique name or identifier.
+  - Users can view the current booking status for each room.
 
-### `npm start`
+- **Booking a Room:**
+  - Users can select a room and choose a time slot to book it.
+  - Time slots are in increments of 30 minutes (e.g., 9:00-9:30, 9:30-10:00...).
+  - Once booked, the time slot is marked as unavailable for that specific room.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Viewing Bookings:**
+  - Users can view all of their current bookings.
+  - The view displays the room name and the booked time slot.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Editing and Canceling Bookings:**
+  - Users have the option to modify the time or cancel their booking.
+  - Once a booking is canceled, the time slot becomes available for others.
 
-### `npm test`
+- **Conflict Handling:**
+  - The system does not allow double-booking of rooms. Users are alerted if they try to book a room that's already reserved for a specific time slot.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technical Requirements
 
-### `npm run build`
+- The frontend is built using React.js.
+- The frontend is user-friendly and responsive.
+- Data is stored in the browser's local storage for a simplified backend.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Table of Contents
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Folder Structure](#folder-structure)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Prerequisites
 
-### `npm run eject`
+Before you begin, ensure you have met the following requirements:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your machine.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Clone the repository:
+   ### `git clone https://github.com/manikanta700/bookmyroom.git`
+2. Navigate to the project folder:
+   ### `cd bookmyroom`
+3. Install the project dependencies:
+   ### `npm install`
+## Usage
+   Start the development server:
+   ### `npm start`
+## Folder Structure
+In this structure:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `bookmyroom/` is the root directory of your project.
+  - `node_modules/` contains the dependencies installed for your project.
+  - `package.json` contains the configuration and dependencies information.
+  - `public/` contains the public files like the HTML template.
+  - `src/` is where your source code resides.
+    - `App.js` is the main application component.
+    - `index.js` is the entry point of your application.
+    - `components/` is a directory for organizing your React components.
+      - `NewBooking.js` is the component for making new bookings.
+      - `MyBookings.js` is the component for displaying user bookings.
+    - `styles/` is where your CSS stylesheets are located.
+      - `App.css` contains styles for the main application.
+      - `NewBooking.css` contains styles for the New Booking component.
+      - `MyBookings.css` contains styles for the My Bookings component.
