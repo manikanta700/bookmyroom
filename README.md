@@ -52,5 +52,23 @@ Before you begin, ensure you have met the following requirements:
 3. Install the project dependencies:
    ### `npm install`
 ## Usage
- Start the development server:
+   Start the development server:
    ### `npm start`
+## Folder Structure
+In this structure:
+
+- `bookmyroom/` is the root directory of your project.
+- `node_modules/` contains the dependencies installed for your project.
+- `package.json` contains the configuration and dependencies information.
+- `public/` contains the public files like the HTML template.
+- `src/` is where your source code resides.
+  - `App.js` is the main application component.
+  - `index.js` is the entry point of your application.
+  - `components/` is a directory for organizing your React components.
+    - `NewBooking.js` is the component for making new bookings.
+    - `MyBookings.js` is the component for displaying user bookings.
+  - `styles/` is where your CSS stylesheets are located.
+    - `App.css` contains styles for the main application.
+    - `NewBooking.css` contains styles for the New Booking component.
+    - `MyBookings.css` contains styles for the My Bookings component.
+  - Other files and directories may be present based on your project's structure.
