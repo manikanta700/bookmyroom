@@ -2,7 +2,7 @@ import React, { useState,useRef,useEffect } from 'react';
 import '../styles/NewBooking.css';
 
 const NewBooking = (props) => {
-  const [selectedDate, setSelectedDate] = useState(props.data.date || '');
+  const [selectedDate, setSelectedDate] = useState(props.data.date || new Date().toISOString().slice(0,10));
   const [selectedRoom, setSelectedRoom] = useState('');
   const [selectedTimeSlot, setSelectedTimeSlot] = useState('');
   const [timeSlots,settimeslots] = useState([
